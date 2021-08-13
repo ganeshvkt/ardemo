@@ -206,7 +206,7 @@ function iniFiveGlb() {
 }
 
 function alpineXL() {
-    modelChangeGlb.src = "img/glb/Thule Motion XT Alpine 629500-Low_v17.glb";
+    modelChangeGlb.src = "img/glb/Motion XT Alpine 629500-LP.glb";
     console.log(modelChangeGlb.src)
 }
 function alpineXXL() {
