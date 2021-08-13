@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Quicklook example</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+
+  <!-- <link rel="stylesheet" href="demo-styles.css"> -->
+
+  <script src="https://unpkg.com/focus-visible@5.0.2/dist/focus-visible.js" defer></script>
+
+
+  <style>
+		*{
+		margin:0;
+		padding:0;
+		}
+		html{
+		height: 100%;
+		width: 100%;
+		}
+		body {
+		  height: 100%;
+		  width: 100%;
+		}
+		model-viewer{
+      height: 800px;
+      width: 100%;
+      overflow: hidden;
+		}
+
+
+    #ar-button {
+    background-image: url(./expand.png);
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+    background-position: 12px 50%;
+    background-color: #fff;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    bottom: 132px;
+    padding: 0px 16px 0px 40px;
+    font-size: 14px;
+    color:#4285f4;
+    height: 36px;
+    line-height: 36px;
+    border-radius: 18px;
+    border: 1px solid #DADCE0;
+  }
+
+  #ar-button:active {
+    background-color: #E8EAED;
+  }
+
+  #ar-button:focus {
+    outline: none;
+  }
+
+  #ar-button:focus-visible {
+    outline: 1px solid #4285f4;
+  }
+  #ar-prompt{
+    display: none;
+  }
+
+		
+    </style>
+
+</head>
+
+<body>
+
+  <div id="card5 imgbox">
+
+
+    <!-- Use it like any other HTML element -->
+
+    <model-viewer id="animationRu" src="Thule_Box_1_1.glb" 
+      ios-src="Thule_Box_1_1.usdz#callToAction=Preorder&checkoutTitle=Adidas%20Stan%20Smith&checkoutSubtitle=Classic%20trainers&price=$100" 
+      ar-modes="scene-viewer webxr quick-look" 
+      autoplay 
+      ar auto-rotate 
+      camera-controls 
+      animation-name="Running"
+      ar-scale="fixed"
+      ar-placement="wall"
+      min-camera-orbit="auto auto auto" 
+      max-camera-orbit="auto auto auto" 
+      min-field-of-view="auto" 
+      max-field-of-view="auto"
+      shadow-intensity="1"
+      xr-environment>
+      
+
+      <div class="progress-bar hide" slot="progress-bar">
+          <div class="update-bar"></div>
+      </div>
+      <button slot="ar-button" id="ar-button">
+          View in your space
+      </button>
+      <div id="ar-prompt">
+          <img src="https://modelviewer.dev/shared-assets/icons/hand.png">
+      </div>
+  </model-viewer>
+
+  
+    <!-- <model-viewer src="Thule_Box_1_1.glb" 
+    alt="A 3D model of an astronaut" 
+    ar ar-modes="webxr scene-viewer quick-look" 
+    environment-image="neutral" 
+    auto-rotate camera-controls
+    ios-src="Thule_Box_1_1.usdz#custom=quickLook.html&customHeight=large" 
+    xr-environment>
+
+    <button slot="ar-button" id="ar-button">
+      View in your space
+    </button>
+
+
+    </model-viewer> -->
+
+    <!-- <model-viewer src="Thule_Box_1_1.glb" 
+     ar-modes="webxr"
+     camera-controls ar
+     alt="A 3D model of an astronaut" 
+     ios-src="Thule_Box_1_1.usdz#custom=quickLook.html&customHeight=large" 
+     xr-environment>
+
+    <button slot="ar-button" id="ar-button">
+      View in your space
+    </button> -->
+  </div>
+
+
+
+
+
+
+  <!-- 💁 Include both scripts below to support all browsers! -->
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+  <!-- Loads <model-viewer> for modern browsers: -->
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js">
+  </script>
+
+  <!-- Loads <model-viewer> for old browsers like IE11: -->
+  <script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
+
+
+
+
+  <script>
+    (() => {
+      const modelViewer = document.querySelector('modelv');
+    
+      self.setInterval(() => {
+        modelViewer.animationName = modelViewer.animationName === 'Running' ?
+          'Wave' : 'Running';
+      }, 100000);
+    })();
+    </script>
+
+  <script type="module">
+    $('#toggle').click(function (event) {
+      event.stopPropagation();
+      $(this).toggleClass('on');
+      $('#menu').slideToggle().addClass('open');
+    });
+    $('#menu').removeClass('open');
+
+    $(document).on("click", function () {
+      $("#menu").slideUp();
+    });
+
+
+
+    // const content = document.querySelector('.center-fit');
+    //   content.style.transformOrigin = 'top left';
+
+    //   window.addEventListener('resize', recalculateScale);
+
+    //   function recalculateScale() {
+    //     const windowHeight = window.innerHeight;
+    //     content.style.transform = `scale(${windowHeight / content.offsetHeight})`;
+        
+    //   }
+
+    //   recalculateScale();
+
+
+  </script>
+
+
+</body>
+
+</html>

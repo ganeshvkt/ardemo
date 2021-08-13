@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Home</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Main Styles Including -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/thule.css">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <!-- <link rel="stylesheet" href="demo-styles.css"> -->
+  <script src="https://unpkg.com/focus-visible@5.0.2/dist/focus-visible.js" defer></script>
+  <script src="./_model-viewer_ Interactive Example_files/focus-visible.js.download" defer=""></script>
+</head>
+
+<body>
+
+  <div class="container mt-3">
+    <div class="bg-white rounded d-flex align-items-center justify-content-between" id="header">
+      <div class="pl-lg-0 pl-auto">
+        <div class="col-xs-12 filter-listing-text">
+          <h2 class="heading3">Rooftop cargo carriers</h2>
+          <div class="category-description">
+            <p>Thule’s wide range of rooftop cargo carriers fits every need – whether you’re living an active lifestyle,
+              going on vacation, or just need extra space.</p>
+          </div>
+          <div class="row">
+            <div class="col-xs-12 filters-applied"></div>
+          </div>
+          <div class="col-xs-12 resultarea hidden-xs hidden-sm">
+            <span id="main_0_mainframed_3_lblResults">Results</span><span></span><span
+              class="value filter-total-amount">: 21</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="my-5 mobile-top-2">
+      <div class="mobile-show">
+        <div class="btn-mobile-show">
+          <button type="button" id="show-toggle" class="btn btn-sm btn-primary visible-xs">
+            <span><i class="fas fa-bars"></i></span>
+          </button>
+        </div>
+      </div>
+
+      <div id="filterbar" class="hide-mobile col-md-3 col-sm-4 mb-5">
+        <!-- <div class="box border-bottom">
+                <div class="form-group text-center">
+                    <div class="btn-group" data-toggle="buttons"> <label class="btn btn-success form-check-label"> <input class="form-check-input" type="radio"> Reset </label> <label class="btn btn-success form-check-label active"> <input class="form-check-input" type="radio" checked> Apply </label> </div>
+                </div>
+                <div> <label class="tick">New <input type="checkbox" checked="checked"> <span class="check"></span> </label> </div>
+                <div> <label class="tick">Sale <input type="checkbox"> <span class="check"></span> </label> </div>
+            </div> -->
+        <div class="box border-bottom">
+          <div class="box-label text-uppercase d-flex align-items-center">Cargo carrier size <button class="btn ml-auto"
+              type="button" data-toggle="collapse" data-target="#inner-box" aria-expanded="false"
+              aria-controls="inner-box" id="out" onclick="outerFilter()"> <span class="fas fa-plus"></span> </button>
+          </div>
+          <div id="inner-box" class=" mt-2 mr-1">
+            <div class="my-1"> <label class="tick">Small (2) <input type="checkbox" checked="checked"> <span
+                  class="check"></span> </label> </div>
+            <div class="my-1"> <label class="tick">Medium <input type="checkbox"> <span class="check"></span> </label>
+            </div>
+            <div class="my-1"> <label class="tick">Large <input type="checkbox"> <span class="check"></span> </label>
+            </div>
+            <div class="my-1"> <label class="tick">X-Large <input type="checkbox"> <span class="check"></span> </label>
+            </div>
+            <div class="my-1"> <label class="tick">XX-Large <input type="checkbox"> <span class="check"></span> </label>
+            </div>
+          </div>
+        </div>
+        <div class="box border-bottom">
+          <div class="box-label text-uppercase d-flex align-items-center">Cargo carrier length <button
+              class="btn ml-auto" type="button" data-toggle="collapse" data-target="#inner-box2" aria-expanded="false"
+              aria-controls="inner-box2"><span class="fas fa-plus"></span></button> </div>
+          <div id="inner-box2" class=" mt-2 mr-1">
+            <div class="my-1"> <label class="tick">Short (2) <input type="checkbox" checked="checked"> <span
+                  class="check"></span> </label> </div>
+            <div class="my-1"> <label class="tick">Medium (7) <input type="checkbox"> <span class="check"></span>
+              </label> </div>
+            <div class="my-1"> <label class="tick">Long (9) <input type="checkbox"> <span class="check"></span> </label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="products" class="my-5">
+        <div class="row mx-0">
+          <div class="col-lg-6 col-md-6">
+            <div class="card d-flex flex-column align-items-center cargo-main mb-5">
+              <div class="top-tump">
+                <img src="./img/top-Tump.jpg" alt="">
+              </div>
+
+              <div class="card-img">
+                <img
+                  src="https://cdn1.static-tgdp.com/ui/productimages/approved/std.lang.all/59/34/685934_sized_480x1000_rev_2.jpg"
+                  alt="">
+              </div>
+
+              <div class="card-body pt-3">
+                <div class="ar-button-action">
+                  <a id="vectorGlb" href="vector.html" title="View AR" class="custom-btn-ar"><img class="icon-size" src="img/arView.png"/></a>
+                </div>
+
+                <!-- <div class="text-muted text-center mt-auto">Available Colors</div> -->
+                <div class="colors my-2 text-center">
+                  <div class="btn-group mt-0 mb-3" data-toggle="buttons" data-tooltip="tooltip" data-placement="right"
+                    title="choose color">
+                    <label class="btn btn-black form-check-label active">
+                      <input class="form-check-input" type="radio" autocomplete="off">
+                    </label>
+                    <label class="btn btn-gray form-check-label">
+                      <input class="form-check-input" type="radio" autocomplete="off">
+                    </label>
+                  </div>
+                  <div class="product-name">Thule Vector M</div>
+                  <p class="font-10-desc">A cargo box like no other that perfectly pairs performance</p>
+                  <div class="d-flex align-items-center justify-content-center price mt-2">
+                    <!-- <div class="del mr-2"><span class="text-dark">$2,399.95 </span></div> -->
+                    <div class="font-weight-bold font-16">$1,399.95 </div>
+                  </div>
+                  <div class="btn tag-manager-add-to-cart-button thule-btn-shop">
+                    <span class="btn-icon-wrapper">
+                      <i class="fa fa-fw frg-icon-cart-notice" aria-hidden="true"></i>
+                    </span>
+                    <div class="btn-text text-red">Temporarily out of stock on Thule.com</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6">
+            <div class="card d-flex flex-column align-items-center cargo-main mb-5">
+              <div class="top-tump">
+                <img src="https://cdn1.static-tgdp.com/ui/productimages/approved/std.lang.all/_r/gb/if_designaward2017red_l_rgb_sized_100x60_rev_1.jpg" alt="">
+              </div>
+              <div class="card-img"> <img
+                  src="https://cdn1.static-tgdp.com/ui/productimages/approved/std.lang.all/93/12/549312_sized_480x1000_rev_1.jpg"
+                  alt=""> </div>
+              <div class="card-body pt-3">
+                <div class="ar-button-action">
+                  <a id="motionGlb" href="motion-XT.html" title="View AR" class="custom-btn-ar"><img class="icon-size" src="img/arView.png"/></a>
+                </div>
+                <!-- <div class="text-muted text-center mt-auto">Available Colors</div> -->
+                <div class="colors my-2 text-center">
+                  <div class="btn-group mt-0 mb-3" data-toggle="buttons" data-tooltip="tooltip" data-placement="right"
+                    title="choose color">
+                    <label class="btn btn-black form-check-label active">
+                      <input class="form-check-input" type="radio" autocomplete="off">
+                    </label>
+                    <label class="btn btn-gray form-check-label">
+                      <input class="form-check-input" type="radio" autocomplete="off">
+                    </label>
+                  </div>
+                  <div class="product-name">Thule Motion XT XL</div>
+                  <p class="font-10-desc">Stylish and spacious roof-mounted cargo box, optimized for ease of use.</p>
+                  <div class="d-flex align-items-center justify-content-center price mt-2">
+                    <!-- <div class="del mr-2"><span class="text-dark">$2,399.95 </span></div> -->
+                    <div class="font-weight-bold font-16">799.95 </div>
+                  </div>
+                  <div class="btn tag-manager-add-to-cart-button thule-btn-shop">
+                    <span class="btn-icon-wrapper">
+                      <i class="fa fa-fw frg-icon-cart-notice" aria-hidden="true"></i>
+                    </span>
+                    <div class="btn-text text-red">Temporarily out of stock on Thule.com</div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- common Js -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" 
+      crossorigin="anonymous"></script>
+    <!-- Loads <model-viewer> for modern browsers: -->
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js">
+    </script>
+    <!-- Loads <model-viewer> for old browsers like IE11: -->
+    <script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
+    <!-- main Js -->
+    <script src="js/main.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Scenegraph</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Main Styles Including -->
+  <link rel="stylesheet" href="css/style.css">
+  <!-- <link rel="stylesheet" href="demo-styles.css"> -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <!-- Focus Main -->
+  <script src="https://unpkg.com/focus-visible@5.0.2/dist/focus-visible.js" defer></script>
+
+</head>
+
+<body>
+
+  <div id="card5 imgbox">
+    <!-- Use it like any other HTML element -->
+    <model-viewer 
+      camera-controls 
+      src="./img/Motion XT Alpine 629500-LP.glb"
+      ios-src="./img/Thule_Box_1_1.usdz#&custom=https://pkarthip91.github.io/Thule_poc/quickLook.html=large"
+      ar
+      id="ar-link"
+      rel="ar"
+      autoplay
+      slot="progress-bar exit-webxr-ar-button interaction-prompt"
+      bounds="legacy"
+      ar-placement ="floor"
+      ar-scale="fixed"
+      ar-tracking ="tracking"
+      ar-modes="webxr scene-viewer quick-look"
+      alt="A 3D model of a helmet">
+      <!-- Custom Button-->
+      <button slot="ar-button" id="ar-button">
+        View in your space
+      </button>
+
+      <div class="slider-next d-inline-block">
+        <div class="d-inline-block mb-3">
+          <select id="colorChange" class="form-select form-select-sm d-inline-block custom-select" aria-label="Default select example">
+            <option value="img/Color/Black.png">Black</option>
+            <option value="img/Color/Grey.png">Grey</option>
+            <option value="img/Color/White.png">White</option>
+          </select>
+          <div class="btn-process ms-1 d-inline-block">
+            <button class="btn btn-primary btn-sm" onclick="nextAnimationScene()">Proceed</button>
+          </div>
+          <div class="btn-process ms-1 d-inline-block">
+            <button class="btn btn-primary btn-sm" onclick="nextAnimationScene3()">Step 3</button>
+          </div>
+        </div>
+      </div>
+      <div class="d-inline-block table-btn">
+        <div class="d-inline-block btn-process ms-1">
+          <button class="btn btn-primary btn-sm">On Table</button>
+        </div>
+  
+        <div class="d-inline-block btn-process ms-1">
+          <button class="btn btn-primary btn-sm">On Car</button>
+        </div>
+      </div>
+      <!-- <a href="intent://arvr.google.com/scene-viewer/1.0?file=https://example.com/model.gltf&sound=https://example.com/sound.mp3#Intent;scheme=https;package=com.google.android.googlequicksearchbox;action=android.intent.action.VIEW;end;">Avocado</a> -->
+    </model-viewer>
+  </div>
+
+ <!-- common Js -->
+ <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+ integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<!-- Loads <model-viewer> for modern browsers: -->
+<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js">
+</script>
+<!-- Loads <model-viewer> for old browsers like IE11: -->
+<script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
+<!-- main Js -->
+<script src="js/main.js"></script>
+
+  <script type="module">// Model Viewer 
+    const modelViewerTexture
+     = document.querySelector("model-viewer#sceneViewer");
+    modelViewerTexture.addEventListener("load", (ev) => {
+      let material = modelViewerTexture.model.materials[0];
+
+      let applyPBRTexture = (channel, event) => {
+        material.pbrMetallicRoughness[channel].texture.source.setURI(event.target.value);
+      }
+
+      document.querySelector('#colorChange').addEventListener('input', (event) => {
+        applyPBRTexture('baseColorTexture', event);
+      });
+
+    })
+     // Quick Look Banner test. 
+     const linkElement = document.getElementById("ar-link");
+      linkElement.addEventListener("message", function (event) {   
+          if (event.data == "_apple_ar_quicklook_button_tapped") {
+              // handle the user tap.   
+          alert('123')
+          }
+      }, false);
+  </script>
+
+ 
+
+</body>
+
+</html>

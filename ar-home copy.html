@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>AR View</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Main Styles Including -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/thule.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <!-- <link href="//cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" rel="stylesheet"/> -->
+  <script src="https://unpkg.com/focus-visible@5.0.2/dist/focus-visible.js" defer></script>
+</head>
+
+<body>
+  <div id="card5 imgbox" class="full-screen-img">
+    <!-- Use it like any other HTML element -->
+    <model-viewer id="imgSize"
+      camera-controls src="./img/Thule Motion XT Alpine 629500-Low_v16-anime.glb"
+      ar autoplay
+      look-controls slot="progress-bar exit-webxr-ar-button interaction-prompt" 
+      poster="./img/logo.png"
+      ar-placement="floor" 
+      shadow-intensity="0"
+      ar-modes="webxr scene-viewer quick-look"
+      ar-scale="fixed"
+      alt="A 3D model of a helmet">
+
+      <!-- <button class="loader2">
+        View in your space
+      </button> -->
+
+
+      <button class="rounded-circle-btn" id="close-model">
+        <i class="fas fa-times"></i>
+      </button>
+
+      <div id="ar-prompt">
+        <img src="img/hand.png">
+      </div>
+
+      <div class="right-rounded-btn table-btn">
+        <div class="slider-m btn-img-bg">
+          <div class="slides-mk">
+            <label class="toggle-control-main">
+              <div class="d-none"><input id="roll" value="0" size="3" class="number"></div>
+              <div class="d-none"><input id="pitch" value="0" size="3" class="number"></div>
+              <!-- <input classname="checkbox" type="checkbox" id="yaw" value="0" size="3" class="number"> -->
+              <button class="d-none" id="frame">Update Framing</button>
+              <div class="form-check form-switch">
+                <input class="form-check-input number" type="checkbox" id="yaw" value="0" size="3" id="flexSwitchCheckDefault">
+                <label class="form-check-label" for="flexSwitchCheckDefault"></label>
+              </div>
+            </label>
+            <button type="button" class="btn btn-primary rounded-circle btn-white" id="nextAnimation"><i
+                class="fas fa-caret-up"></i></button>
+            <button type="button" class="btn btn-primary rounded-circle btn-white" id="previousAnimationn"><i
+                class="fas fa-caret-down"></i> </button>
+          </div>
+        </div>
+
+        <button  type="button" onclick="lockBtn()" class=" btn btn-primary rounded-circle btn-lock-unlock btn-white center-icons-lock">
+          Fix </button>
+        <div class="bottom-icons">
+          <div class="btn btn-primary chat-bot-icon rounded-circle cars-btn btn-white-opcity margin-top-5 size-icons ">
+            <div class="animate-img">
+             Size
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="feather feather-x ">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </div>
+        <button type="button" class=" btn btn-primary rounded-circle btn-white-opcity">
+          <i class="fas fa-camera"></i>
+          </button>
+        </div>
+
+        <!-- <div id="colorVariant">
+          <button value="./img/Color/Black.png">Damaged helmet</button>
+          <button value="./img/Color/Grey.png">Lantern Pole</button>
+          <button value="./img/Color/White.png">Water Bottle</button>
+        </div> -->
+
+        <!-- Chat bot UI start -->
+        <div class="chat-screen">
+          <div class="chat-mail">
+            <div class="row">
+              <div class="col-8 size-section" id="sizeChange">
+                <div class="model-slide">
+                  <button type="button" onclick="alpineXL()" class="btn btn-primary rounded-circle btn-white d-inline-block active-color">Alpine</button>
+                  <button type="button" onclick="alpineXXL()" class="btn btn-primary rounded-circle btn-white d-inline-block">XL </button>
+                  <button type="button" onclick="alpineM()" class="btn btn-primary rounded-circle btn-white d-inline-block ">M
+                  </button>
+                </div>
+                <div class="model-slide">
+                  <button type="button" onclick="sportXL()" class="btn btn-primary rounded-circle btn-white d-inline-block">Sport</button>
+                  <button type="button" onclick="sportXXL()" class="btn btn-primary rounded-circle btn-white d-inline-block">XXL </button>
+                  <button type="button" onclick="sportL()" class="btn btn-primary rounded-circle btn-white d-inline-block">L </button>
+                </div>
+              </div>
+              <div class="col-4 color-section" id="color-controls">
+                <div class="model-slide" id="colorChange">
+                  <button type="button" data-color="0,0,0" class="btn btn-primary rounded-circle btn-white d-inline-block color-black active-color"></button>
+                  <button type="button" data-color="1,1,0,0" class="btn btn-primary rounded-circle btn-white d-inline-block color-gray"> </button>
+                  <button type="button" data-color="1,1,0,0" class="btn btn-primary rounded-circle btn-white d-inline-block color-gray"> </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </model-viewer>
+  </div>
+
+
+  <!-- common Js -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <!-- Loads <model-viewer> for modern browsers: -->
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js">
+  </script>
+  <!-- Loads <model-viewer> for old browsers like IE11: -->
+  <script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
+  <!-- main Js -->
+  <script src="js/main.js"></script>
+
+  <script>
+    const modelViewerTexture = document.querySelector("model-viewer#imgSize");
+    modelViewerTexture.addEventListener("load", (ev) => {
+      let material = modelViewerTexture.model.materials[0];
+      let applyPBRTexture = (channel, event) => {
+        material.pbrMetallicRoughness[channel].texture.source.setURI(event.target.value);
+      }
+      document.querySelector('#colorVariant').addEventListener('click', (event) => {
+        applyPBRTexture('baseColorTexture', event);
+      });
+    })
+    
+    </script>
+
+
+  <script>
+
+
+
+    $(document).ready(function () {
+
+//Toggle fullscree
+$(".chat-bot-icon").click(function (e) {
+  $(this).children('.animate-img').toggleClass('hide');
+  $(this).children('span').toggleClass('hide');
+  $(this).children('svg').toggleClass('animate');
+  $('.chat-screen').toggleClass('show-chat');
+});
+});
+
+// Add active class to the current button (highlight it)
+
+        var sizeHeader = document.getElementById("sizeChange");
+        var sizeBtns = sizeHeader.getElementsByClassName("rounded-circle");
+        for (var i = 0; i < sizeBtns.length; i++) {
+          sizeBtns[i].addEventListener("click", function() {
+          var sizeCurrent = document.getElementsByClassName("active-color");
+          sizeCurrent[0].className = sizeCurrent[0].className.replace(" active-color", "");
+          this.className += " active-color";
+          });
+        }
+
+      var colorHeader = document.getElementById("colorChange");
+        var colorBtns = colorHeader.getElementsByClassName("rounded-circle");
+        for (var i = 0; i < colorBtns.length; i++) {
+          colorBtns[i].addEventListener("click", function() {
+          var colorCurrent = document.getElementsByClassName("active-color");
+          colorCurrent[0].className = colorCurrent[0].className.replace(" active-color", "");
+          this.className += " active-color";
+          });
+      }
+
+
+    const modelViewerTransform = document.querySelector("model-viewer#imgSize");
+    const roll = document.querySelector('#roll');
+    const pitch = document.querySelector('#pitch');
+    const yaw = document.querySelector('#yaw');
+    const frame = document.querySelector('#frame');
+
+    frame.addEventListener('click', function () {
+      modelViewerTransform.updateFraming();
+    });
+
+    const updateOrientation = () => {
+        modelViewerTransform.orientation = `${roll.value}deg ${pitch.value}deg ${yaw.value = "270"}deg `;
+      }
+
+    roll.addEventListener('input', () => {
+      updateOrientation();
+    });
+    pitch.addEventListener('input', () => {
+      updateOrientation();
+    });
+    yaw.addEventListener('input', () => {
+      updateOrientation();
+    });
+    frame.addEventListener('input', () => {
+      updateOrientation();
+    });
+  </script>
+
+
+
+</body>
+
+</html>
